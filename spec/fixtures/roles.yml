@@ -1,0 +1,24 @@
+desconhecido:
+  id: 1
+  name: Desconhecido
+  description: Desconhecido
+coordenacao:
+  id: 2
+  name: Coordenação
+  description: Coordenação
+secretaria:
+  id: 3
+  name: Secretaria
+  description: Secretaria
+professor:
+  id: 4
+  name: Professor
+  description: Professor
+aluno:
+  id: 5
+  name: Aluno
+  description: Aluno
+administrador:
+  id: 6
+  name: Administrador
+  description: Administrador

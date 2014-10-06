@@ -12,6 +12,6 @@ FactoryGirl.define do
       "User_#{name}"
     end
     password "password"
-    role_id Role::ROLE_ADMINISTRADOR
+    role
   end
 end
