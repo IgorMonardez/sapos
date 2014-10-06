@@ -203,6 +203,13 @@ Sapos::Application.routes.draw do
     as_routes
   end
 
+  resources :reports do
+    as_routes
+  end
+  resources :report_params do
+    as_routes
+  end
+
   resources :notifications do
     as_routes
     member do

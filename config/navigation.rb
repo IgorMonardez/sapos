@@ -129,6 +129,7 @@ SimpleNavigation::Configuration.run do |navigation|
       configuration.item :user, 'Usuários', users_path, :if => can_read?(User)
       configuration.item :roles, 'Papéis', roles_path, :if => can_read?(Role)
       configuration.item :versions, 'Log', versions_path, :if => can_read?(Version)
+      configuration.item :notifications, 'Relatórios', reports_path, :if => can_read?(Report)
       configuration.item :notifications, 'Notificações', notifications_path, :if => can_read?(Notification)
       configuration.item :queries, 'Consultas', queries_path, :if => can_read?(Query)
       configuration.item :notification_logs, 'Notificações Enviadas', notification_logs_path, :if => can_read?(NotificationLog)
