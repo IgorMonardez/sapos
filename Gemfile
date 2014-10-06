@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2.19'
-gem "rails-erd", "~> 1.0.0"
+# gem "rails-erd", "~> 1.0.0"
 gem "kaminari"
 #gem "schema_plus"
 

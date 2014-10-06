@@ -173,11 +173,6 @@ GEM
       activesupport (= 3.2.19)
       bundler (~> 1.0)
       railties (= 3.2.19)
-    rails-erd (1.0.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      choice (~> 0.1.6)
-      ruby-graphviz (~> 1.0.4)
     railties (3.2.19)
       actionpack (= 3.2.19)
       activesupport (= 3.2.19)
@@ -284,7 +279,6 @@ DEPENDENCIES
   prawn_rails
   quiet_assets
   rails (~> 3.2.19)
-  rails-erd (~> 1.0.0)
   recordselect (~> 3.3.6)
   redcarpet (= 2.1.0)
   rspec-rails (~> 2.0)
