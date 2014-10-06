@@ -10,9 +10,10 @@ class Ability
                 DismissalReason, Enrollment, EnrollmentHold, EnrollmentStatus, 
                 Institution, Level, Major, Notification, NotificationLog, Phase, 
                 PhaseCompletion, PhaseDuration, Professor, ProfessorResearchArea,
-                ReportConfiguration, ResearchArea, Role, Scholarship, ScholarshipDuration, 
-                ScholarshipSuspension, ScholarshipType, Sponsor, State, Student, StudentMajor, 
-                ThesisDefenseCommitteeParticipation, User, Version, YearSemester] 
+                Report, ReportParams, ReportConfiguration, ResearchArea, Role, Scholarship,
+                ScholarshipDuration, ScholarshipSuspension, ScholarshipType, Sponsor,
+                State, Student, StudentMajor, ThesisDefenseCommitteeParticipation, User,
+                Version, YearSemester]
 
 
   def initialize(user)
