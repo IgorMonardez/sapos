@@ -922,7 +922,7 @@ pt-BR:
       preview: "Visualizar"
     enrollment:
       to_pdf:
-        filename: "Relatório de Matrículas"
+        filename: "Relatório de Matrículas.pdf"
       header:
         approved: "Aprovado em"
         no_test: "Nenhum exame realizado"
