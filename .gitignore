@@ -2,7 +2,7 @@
 /db/*.sqlite3
 /log/*.log
 /tmp/
-/nbproject/private/
+/nbproject
 /app/assets/images/report_configuration
 /app/assets/images/student
 /public/assets
