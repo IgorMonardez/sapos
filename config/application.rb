@@ -70,6 +70,10 @@ module Sapos
     config.assets.version = '1.0'
 
     config.log_level = :debug
+
+    config.autoload_paths += Dir[ Rails.root.join('app', 'models', "concerns", '**/') ]
+    config.autoload_paths += Dir[ Rails.root.join('app', 'helpers', "concerns", '**/') ]
+    config.autoload_paths += Dir[ Rails.root.join('app', 'controllers', "concerns", '**/') ]
   end
 
   ActionMailer::Base.default :from => 'SAPOS <sapos@sel.ic.uff.br>'
