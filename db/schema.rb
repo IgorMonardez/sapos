@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_19_133853) do
   create_table "accomplishments", force: :cascade do |t|
     t.integer "enrollment_id"
     t.integer "phase_id"
@@ -440,6 +440,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.boolean "enabled", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reply_to", limit: 255
   end
 
   create_table "enrollment_holds", force: :cascade do |t|
@@ -577,6 +578,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.string "code", limit: 255
   end
 
+  create_table "institutions_professors", id: false, force: :cascade do |t|
+    t.integer "institution_id", null: false
+    t.integer "professor_id", null: false
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "institutions_id", name: "index_institutions_professors_on_institutions_id"
+    t.index "professors_id", name: "index_institutions_professors_on_professors_id"
+  end
+
   create_table "letter_requests", force: :cascade do |t|
     t.integer "admission_application_id"
     t.string "name"
@@ -619,6 +631,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.string "subject", limit: 255
     t.text "body"
     t.string "attachments_file_names"
+    t.string "reply_to", limit: 255
     t.index ["notification_id"], name: "index_notification_logs_on_notification_id"
   end
 
@@ -701,7 +714,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.string "siape", limit: 255
     t.string "enrollment_number", limit: 255
     t.string "identity_issuing_place", limit: 255
-    t.integer "institution_id"
     t.string "email", limit: 255
     t.date "academic_title_date"
     t.integer "academic_title_country_id"
@@ -715,7 +727,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.index ["city_id"], name: "index_professors_on_city_id"
     t.index ["cpf"], name: "index_professors_on_cpf"
     t.index ["email"], name: "index_professors_on_email"
-    t.index ["institution_id"], name: "index_professors_on_institution_id"
     t.index ["user_id"], name: "index_professors_on_user_id"
   end
 
@@ -817,6 +828,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_18_203814) do
     t.string "code", limit: 255
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "role_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
