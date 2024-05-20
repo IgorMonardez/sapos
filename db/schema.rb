@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_19_133853) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
   create_table "accomplishments", force: :cascade do |t|
     t.integer "enrollment_id"
     t.integer "phase_id"
@@ -254,6 +254,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_19_133853) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["enrollment_id"], name: "index_advisements_on_enrollment_id"
     t.index ["professor_id"], name: "index_advisements_on_professor_id"
+  end
+
+  create_table "affiliation", id: false, force: :cascade do |t|
+    t.integer "professors_id"
+    t.integer "institutions_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["institutions_id"], name: "index_affiliation_on_institutions_id"
+    t.index ["professors_id"], name: "index_affiliation_on_professors_id"
   end
 
   create_table "allocations", force: :cascade do |t|
@@ -578,17 +589,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_19_133853) do
     t.string "code", limit: 255
   end
 
-  create_table "institutions_professors", id: false, force: :cascade do |t|
-    t.integer "institution_id", null: false
-    t.integer "professor_id", null: false
-    t.datetime "data_inicio"
-    t.datetime "data_fim"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index "institutions_id", name: "index_institutions_professors_on_institutions_id"
-    t.index "professors_id", name: "index_institutions_professors_on_professors_id"
-  end
-
   create_table "letter_requests", force: :cascade do |t|
     t.integer "admission_application_id"
     t.string "name"
@@ -828,13 +828,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_19_133853) do
     t.string "code", limit: 255
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "role_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
