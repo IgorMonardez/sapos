@@ -8,8 +8,8 @@ class Institution < ApplicationRecord
   has_paper_trail
 
   has_many :majors, dependent: :restrict_with_exception
-  has_many :affiliation, dependent: :restrict_with_exception
-
+  has_many :affiliations, dependent: :restrict_with_exception
+  has_many :professors, through: :affiliations
   validates :name, presence: true, uniqueness: true
 
   def to_label

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_22_181457) do
   create_table "accomplishments", force: :cascade do |t|
     t.integer "enrollment_id"
     t.integer "phase_id"
@@ -263,6 +263,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active"
     t.index ["institution_id"], name: "index_affiliations_on_institution_id"
     t.index ["professor_id"], name: "index_affiliations_on_professor_id"
   end
