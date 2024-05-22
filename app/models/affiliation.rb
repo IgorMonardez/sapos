@@ -6,10 +6,8 @@ class Affiliation < ApplicationRecord
 
   private
   def adjust_affiation
-    all_professor = Versions.all.where(item_type: "Professor")
-    all_professor.each do |v|
-      Affiliation.new(institution: )
-    end
+    versions = PaperTrail::Version.where(item_type: "Professor")
+    versions.where()
   end
 
 end

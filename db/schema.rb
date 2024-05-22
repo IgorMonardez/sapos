@@ -256,15 +256,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
     t.index ["professor_id"], name: "index_advisements_on_professor_id"
   end
 
-  create_table "affiliation", id: false, force: :cascade do |t|
-    t.integer "professors_id"
-    t.integer "institutions_id"
+  create_table "affiliations", force: :cascade do |t|
+    t.integer "professor_id"
+    t.integer "institution_id"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["institutions_id"], name: "index_affiliation_on_institutions_id"
-    t.index ["professors_id"], name: "index_affiliation_on_professors_id"
+    t.index ["institution_id"], name: "index_affiliations_on_institution_id"
+    t.index ["professor_id"], name: "index_affiliations_on_professor_id"
   end
 
   create_table "allocations", force: :cascade do |t|
@@ -980,7 +980,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
     t.integer "failed_attempts", default: 0
     t.string "unlock_token", limit: 255
     t.datetime "locked_at", precision: nil
-    t.integer "role_id", default: 1, null: false
     t.string "unconfirmed_email"
     t.string "invitation_token"
     t.datetime "invitation_created_at", precision: nil
@@ -990,11 +989,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.integer "role_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
-    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
   create_table "versions", force: :cascade do |t|
@@ -1007,4 +1006,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_20_203145) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "affiliations", "institutions"
+  add_foreign_key "affiliations", "professors"
 end
